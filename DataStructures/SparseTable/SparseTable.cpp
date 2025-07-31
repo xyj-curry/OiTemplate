@@ -1,5 +1,5 @@
 int lg2[MAXN], st[20][MAXN];
-void initlg2() {
+void initlg2(int n) {
     lg2[0] = -1;
     for (int i = 1; i <= n; i++) {
         lg2[i] = lg2[i >> 1] + 1;

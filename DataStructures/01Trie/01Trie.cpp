@@ -55,5 +55,18 @@ void addall(int k) {
     }
     pushup(k);
 }
-// merge
+int merge(int k1, int k2) {
+    if (k1 == 0) {
+        return k2;
+    }
+    if (k2 == 0) {
+        return k1;
+    }
+    t[k1][0] = merge(t[k1][0], t[k2][0]);
+    t[k1][1] = merge(t[k1][1], t[k2][1]);
+    w[k1] += w[k2];
+    ed[k1] += ed[k2];
+    xorv[k1] ^= xorv[k2];
+    return k1;
+}
 // split

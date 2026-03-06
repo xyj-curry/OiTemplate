@@ -21,7 +21,7 @@ ll lagrange_interpolation_equi(int n, ll y[], ll k) {
     }
     ll ret = 0, p = 1, q;
     for (int i = 1; i <= n; i++) {
-        q = ((n - i) % 2 == 0 ? 1 : -1) * ifact[i - 1] * ifact[n - i] % mod;
+        q = ((n - i) % 2 == 0 ? 1 : -1) * ifac[i - 1] * ifac[n - i] % mod;
         ret = (ret + ((p * sur[i + 1] % mod) * q % mod) * y[i] % mod + mod) % mod;
         p = p * (k - i) % mod;
     }

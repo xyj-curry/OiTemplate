@@ -46,6 +46,7 @@
     - [Floyd](Graph/ShortestPath/Floyd.cpp)
     - [SPFA](Graph/ShortestPath/SPFA.cpp)
   - [Tarjan](Graph/Tarjan)
+    - [强连通分量](Graph/Tarjan/SCC.cpp)
 - [数学](Math)
   - [高斯消元法](Math/GaussElimination)
     - [高斯约当消元法](Math/GaussElimination/GaussJordanElimination.cpp)

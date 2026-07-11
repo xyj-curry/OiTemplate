@@ -71,6 +71,8 @@
   - [字符串匹配](String/Match)
     - [AC 自动机](String/Match/ACAutomation.cpp)
     - [KMP](String/Match/KMP.cpp)
+  - [SA](String/SA)
+    - [SA](String/SA/SA.cpp)
 - [树](Tree)
   - [树链剖分](Tree/HeavyLightDecomposition)
     - [树链剖分](Tree/HeavyLightDecomposition/HeavyLightDecomposition.cpp)

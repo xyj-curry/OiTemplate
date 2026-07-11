@@ -5,20 +5,26 @@ void manacher(string t, int d[]) {
         s += t[i];
         s += '#';
     }
+    b = t.length();
     int l = 0, r = -1;
-    for (int i = 0; i < n * 2 + 1; i++) {
-        if (r >= i) {
-            d[i] = min(d[(l + r) - i], r - i);
-        } else {
-            d[i] = 0;
+    for (int i = 0; i < n; i++) {
+        d[i] = 1;
+        if (i <= r) {
+            d[i] = min(r - i + 1, d[l + r - i]);
         }
-        while (((i - d[i] - 1 >= 0) && (i + d[i] + 1 < n * 2 + 1)) &&
-               (s[i - d[i] - 1] == s[i + d[i] + 1])) {
+        while ((i - d[i] >= 0 && i + d[i] < n) && (t[i - d[i]] == t[i + d[i]])) {
             d[i]++;
         }
-        if (i + d[i] > r) {
-            r = i + d[i];
-            l = i - d[i];
+        if (i + d[i] - 1 > r) {
+            r = i + d[i] - 1;
+            l = i - d[i] + 1;
+        }
+    }
+    for (int i = 1; i < n - 1; i++) {
+        if (i % 2 == 1) {
+            //((i / 2) - ((d[i] - 1) / 2)]) ~ ((i / 2) + ((d[i] - 1) / 2)) = d[i] - 1
+        } else {
+            //((i / 2) - ((d[i] - 1) / 2)]) ~ ((i / 2) + ((d[i] - 1) / 2) - 1) = d[i] - 1
         }
     }
 }

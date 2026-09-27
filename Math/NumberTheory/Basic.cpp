@@ -32,14 +32,14 @@ ll exgcd(ll a, ll b, ll& x, ll& y) {
     return gc;
 }  // ans is (x + k * (b / gcd(a, b))), y + k * (a / gcd(a, b))
 
-ll inv[MAXN], fact[MAXN], ifact[MAXN];
-void init_fact(int n) {
-    fact[0] = inv[0] = ifact[0] = 1;
-    fact[1] = inv[1] = ifact[1] = 1;
+ll inv[MAXN], fac[MAXN], ifac[MAXN];
+void init_fac(int n) {
+    fac[0] = inv[0] = ifac[0] = 1;
+    fac[1] = inv[1] = ifac[1] = 1;
     for (int i = 2; i <= n; i++) {
-        fact[i] = fact[i - 1] * i % mod;
+        fac[i] = fac[i - 1] * i % mod;
         inv[i] = (-(mod / i) * inv[mod % i] % mod + mod) % mod;
-        ifact[i] = ifact[i - 1] * inv[i] % mod;
+        ifac[i] = ifac[i - 1] * inv[i] % mod;
     }
 }
 
@@ -47,7 +47,7 @@ ll C(int n, int m) {
     if (m < 0 || n < 0 || n < m) {
         return 0;
     }
-    return fact[n] * (ifact[m] * ifact[n - m] % mod) % mod;
+    return fac[n] * (ifac[m] * ifac[n - m] % mod) % mod;
 }
 
 ll simC(int n, int m) {
